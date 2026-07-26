@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewwport" content="width=device-width, initial-scale=1.0">
+        <title>CyberSentinel - SOC Dashboard</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="header-brand">
+                <span class="logo">⚡</span>
+                <h1>CyberSentinel</h1>
+                <span class="subtitulo">SOC Dashboard</span>
+
+            </div>
+            <div id="estado-sistema" class="estado seguro">
+                SISTEMA SEGURO
+            </div>
+        </header>
+
+        <div class="metricas">
+            <div class="card-metrica">
+                <p class="metrica-label">Ataques Bloqueados</p>
+                <h3 class="metrica-valor verde" id="contador-ataques">0</h3>
+                
+            </div>
+            <div class="card-metrica">
+                <p class="metrica-label">IPs Baneadas</p>
+                <h3 class="metrica-valor amarillo" id="contador-ips">0</h3>
+
+            </div>
+            <div class="card-metrica">
+                <p class="metrica-label">Intentos de Intrusion</p>
+                <h3 class="metrica-valor rojo" id="contador-intrusos">0</h3>
+            </div>
+        </div>
+        <div class="seccion-grafico">
+            <div class="grafico-header">
+                <span>📈 ATAQUES POR TIPO — ÚLTIMOS EVENTOS</span>
+            </div>
+            <div class="grafico-contenedor">
+                <canvas id="grafico-ataques"></canvas>
+            </div>
+
+        </div>
+        
+        <div class="panel-principal">
+            <div class="consola">
+                <div class="consola-header">
+                    <span>▶ CONSOLA DE EVENTOS</span>
+                    <button onclick="limpiarConsola()">Limpiar</button>
+                    <button id="btn-pausa" onclick="pausarReanudar()">⏸ Pausar</button>
+                </div>
+                <div class="consola-logs" id="consola-logs">
+
+                </div>
+
+            </div>
+
+        
+        <aside class="panel-ips">
+            <h2>IPs Atacantes</h2>
+            <div id="lista-ips">
+
+            </div>
+
+        </aside>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+    <script src="script.js"></script>
+
+</html>

@@ -1,0 +1,291 @@
+/* =============================================
+   CYBERSENTINEL — Estilos Dark/Ciberpunk
+   ============================================= */
+
+/* 1. Reset y variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-principal:  #121212;
+    --bg-tarjeta:    #1e1e1e;
+    --bg-consola:    #0a0a0a;
+    --verde-neon:    #00ff88;
+    --amarillo:      #ffd600;
+    --rojo-alerta:   #ff3333;
+    --texto-base:    #c8c8c8;
+    --borde:         #2a2a2a;
+    --radio:         8px;
+}
+
+/* 2. Body — fondo oscuro general */
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-base);
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* 3. Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 16px 24px;
+    margin-bottom: 20px;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 28px;
+}
+
+header h1 {
+    font-size: 1.4rem;
+    color: var(--verde-neon);
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    font-size: 12px;
+    color: var(--texto-base);
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+
+/* 4. Estado del sistema */
+.estado {
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.estado.seguro {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--verde-neon);
+    border: 1px solid var(--verde-neon);
+}
+
+.estado.ataque {
+    background: rgba(255, 51, 51, 0.1);
+    color: var(--rojo-alerta);
+    border: 1px solid var(--rojo-alerta);
+    animation: parpadeo 1s infinite;
+}
+
+@keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+
+/* 5. Métricas */
+.metricas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.card-metrica {
+    background: var(--bg-tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 20px;
+    text-align: center;
+}
+
+.metrica-label {
+    font-size: 11px;
+    color: var(--texto-base);
+    opacity: 0.6;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.metrica-valor {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Colores de los valores */
+.verde   { color: var(--verde-neon); }
+.amarillo{ color: var(--amarillo); }
+.rojo    { color: var(--rojo-alerta); }
+
+/* 6. Panel principal — 2 columnas */
+.panel-principal {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+}
+
+/* 7. Consola de logs */
+.consola {
+    background: var(--bg-consola);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    overflow: hidden;
+}
+
+.consola-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: var(--bg-tarjeta);
+    border-bottom: 1px solid var(--borde);
+    font-size: 12px;
+    color: var(--verde-neon);
+    letter-spacing: 1px;
+}
+
+.consola-header button {
+    background: transparent;
+    border: 1px solid var(--borde);
+    color: var(--texto-base);
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.consola-header button:hover {
+    border-color: var(--rojo-alerta);
+    color: var(--rojo-alerta);
+}
+
+.consola-logs {
+    padding: 12px 16px;
+    height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Línea individual de log */
+.log-linea {
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 2px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.log-critico { color: var(--rojo-alerta); }
+.log-alerta  { color: var(--amarillo); }
+.log-info    { color: var(--verde-neon); }
+
+/* 8. Panel de IPs */
+.panel-ips {
+    background: var(--bg-tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 16px;
+}
+
+.panel-ips h2 {
+    font-size: 12px;
+    color: var(--verde-neon);
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--borde);
+}
+
+/* Ítem de IP */
+.ip-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--borde);
+    font-size: 12px;
+}
+
+.ip-item:last-child {
+    border-bottom: none;
+}
+
+.ip-direccion {
+    color: var(--rojo-alerta);
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.ip-detalle {
+    font-size: 10px;
+    color: var(--texto-base);
+    opacity: 0.5;
+}
+
+.btn-bloquear {
+    background: rgba(255, 51, 51, 0.1);
+    border: 1px solid var(--rojo-alerta);
+    color: var(--rojo-alerta);
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: inherit;
+    transition: all 0.2s;
+    width: auto;
+}
+
+.btn-bloquear:hover {
+    background: var(--rojo-alerta);
+    color: #000;
+}
+
+.ip-bloqueada {
+    opacity: 0.3;
+    text-decoration: line-through;
+}
+
+/* 9. Responsive */
+@media (max-width: 768px) {
+    .metricas {
+        grid-template-columns: 1fr;
+    }
+    .panel-principal {
+        grid-template-columns: 1fr;
+    }
+}
+.seccion-grafico {
+    background: var(--bg-tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.grafico-header {
+    padding: 10px 16px;
+    background: var(--bg-consola);
+    border-bottom: 1px solid var(--borde);
+    font-size: 12px;
+    color: var(--verde-neon);
+    letter-spacing: 1px;
+}
+
+.grafico-contenedor {
+    padding: 16px;
+    height: 200px;
+}
