@@ -15,7 +15,7 @@ const pool = new Pool({
     port: 5432,
     database: "cyberSentinel",
     user:"postgres",
-    password:"granados123"
+    password:"123"
 });
 
 app.get("/",(req , res) => {
