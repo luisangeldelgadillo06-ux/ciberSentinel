@@ -1,6 +1,7 @@
 // =============================================
 // CYBERSENTINEL — Servidor Backend
 // =============================================
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
@@ -11,11 +12,11 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-    host: "localhost",
-    port: 5432,
-    database: "cyberSentinel",
-    user:"postgres",
-    password:"granados123"
+    host:     process.env.DB_HOST,
+    port:     process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    user:     process.env.DB_USER,
+    password: process.env.DB_PASSWORD
 });
 
 app.get("/",(req , res) => {
